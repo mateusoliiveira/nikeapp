@@ -37,12 +37,7 @@ export default function ProductShowScreen() {
         />
         <View style={{ padding: 20 }}>
           <Text style={styles.title}>{product.name}</Text>
-          <Text style={styles.price}>
-            {product.price.toLocaleString("pt-BR", {
-              style: "currency",
-              currency: "BRL",
-            })}
-          </Text>
+          <Text style={styles.price}>{"R$ " + product.price.toFixed(2)}</Text>
           <Text style={styles.description}>{product.description}</Text>
         </View>
       </ScrollView>

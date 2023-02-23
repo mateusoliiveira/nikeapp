@@ -1,12 +1,13 @@
 import { StyleSheet, StatusBar, View } from "react-native";
 import ProductScreen from "./src/screens/ProductScreen";
 import ProductShowScreen from "./src/screens/ProductShowScreen";
+import CartScreen from "./src/screens/CartScreen";
 
 export default function App() {
   return (
     <View style={styles.container}>
       {/* <ProductScreen /> */}
-      <ProductShowScreen />
+      <CartScreen />
       <StatusBar barStyle="default" />
     </View>
   );

@@ -9,10 +9,10 @@ export default [
       "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike1_3.png",
       "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/nike/nike1_4.png",
     ],
-    name: "Wild Berry",
+    name: "Nike Wild Berry",
     price: 160,
     sizes: [39, 40, 41],
-    description: `Inspired by the original that debuted in 1985, the Air Jordan 1 Low delivers a clean, classic look that's familiar yet fresh. With an iconic design that blends seamlessly with any fit, these shoes are perfect for taking charge.
+    description: `O tênis Nike conta com faixa de ajuste no mediopé que, se usada em conjunto com sua amarração em cadarço, proporciona mais firmeza e suporte aos pés. Entressola em espuma macia e elevada, conferindo amortecimento e uma sensação suave em cada passada. Solado emborrachado para criar tração e dar aderência a calçadas, ruas e esteiras. 
 
 Advantages:
 - Encapsulated Air-Sole unit for lightweight cushioning.
