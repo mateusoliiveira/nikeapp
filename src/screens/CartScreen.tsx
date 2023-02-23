@@ -9,17 +9,28 @@ import {
 } from "react-native";
 import cart from "../data/cart";
 import CartListItem from "../components/atom/CartListItem";
+import { useSelector } from "react-redux";
+import {
+  selectSubTotal,
+  selectDeliveryFee,
+  selectNumberOfItems,
+  selectTotal,
+} from "../store/cart.slice";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function CartScreen() {
-  function increaseQtt() {}
-  function decreaseQtt() {}
+  const cart = useSelector(({ cart }: any) => cart.items);
+  const subtotal = useSelector(selectSubTotal);
+  const deliveryFee = useSelector(selectDeliveryFee);
+  const total = useSelector(selectTotal);
+  const numberOfItems = useSelector(selectNumberOfItems);
 
   function ShoppingCartPartial() {
     return (
       <View style={styles.totalsContainer}>
         <View style={styles.row}>
           <Text style={styles.text}>Subtotal</Text>
-          <Text style={styles.text}>R$ 410.00</Text>
+          <Text style={styles.text}>R${subtotal}</Text>
         </View>
       </View>
     );
@@ -29,11 +40,13 @@ export default function CartScreen() {
       <View style={styles.totalsContainer}>
         <View style={styles.row}>
           <Text style={styles.text}>Delivery</Text>
-          <Text style={styles.text}>R$ 20.00</Text>
+          <Text style={styles.text}>
+            {!deliveryFee ? "grátis" : `R$${deliveryFee}`}
+          </Text>
         </View>
         <View style={styles.row}>
           <Text style={styles.textBold}>Total</Text>
-          <Text style={styles.textBold}>R$ 430.00</Text>
+          <Text style={styles.textBold}>R${total}</Text>
         </View>
       </View>
     );
@@ -48,7 +61,13 @@ export default function CartScreen() {
           return <ShoppingCartPartial />;
         }}
         ListFooterComponent={() => {
-          return <ShoppingCartTotal />;
+          return !numberOfItems ? (
+            <Text style={{ textAlign: "center" }}>
+              Seu carrinho está vazio <FontAwesome5 name="sad-tear" />
+            </Text>
+          ) : (
+            <ShoppingCartTotal />
+          );
         }}
       />
       <Pressable style={styles.button}>
