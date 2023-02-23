@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   StyleSheet,
   View,
@@ -10,15 +10,22 @@ import {
   Pressable,
 } from "react-native";
 import products from "../data/products";
+import { useSelector } from "react-redux";
 
-export default function ProductShowScreen() {
-  const product = products[0];
+export default function ProductShowScreen({ navigation }: any) {
+  const product = useSelector(({ products }: any) => products.selectedProduct);
   const { width } = useWindowDimensions();
   let screenWidth = width;
 
   function addToCart() {
     console.warn("added");
   }
+
+  useEffect(() => {
+    navigation.setOptions({
+      headerTitle: `Detalhes de ${product.name}`,
+    });
+  }, [navigation]);
 
   return (
     <View>

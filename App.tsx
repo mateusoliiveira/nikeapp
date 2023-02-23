@@ -1,15 +1,16 @@
 import { StyleSheet, StatusBar, View } from "react-native";
-import ProductScreen from "./src/screens/ProductScreen";
-import ProductShowScreen from "./src/screens/ProductShowScreen";
-import CartScreen from "./src/screens/CartScreen";
+import Navigation from "./src/navigation";
+import { Provider } from "react-redux";
+import { store } from "./src/store";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      {/* <ProductScreen /> */}
-      <CartScreen />
-      <StatusBar barStyle="default" />
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <Navigation />
+        <StatusBar barStyle="default" />
+      </View>
+    </Provider>
   );
 }
 
